@@ -96,13 +96,27 @@ c2<-c("you","will","succeed") # this is chacter vector
 
 c3<-c(TRUE, FALSE, FALSE) # logical vector
 
-#Vectors are one of the most commonly used data structures in R. You can access elements of a vector using square brackets.
+marks<-c("usman"=50,"yousaf"=70,"john"=75,"ali"=83)
+
+letters #this is built in vector in R.
+
+# You can access elements of a vector using square brackets.
+
 c1[2] #accessing second element of vector
 c1[c(1,2,4,5)] #accessing 1,2,4,5 element of vector
 c1[2:5] #accessing from second to fifth element of vector
+c1[c1>=2&c1<=4]
+
+marks[c("usman","ali")]
 
 c2[3]
 c3[1:2]
+
+### Removing values from vector----
+letters
+c3.1<- letters[-1] # remove first alphabet from letters
+c3.2<- letters[-c(1,4,7,9)] #removing 1,4,7,9th alphabet from letters
+
 
 ###2.1.1 Alternative way to create vectors:----
 ?seq
@@ -138,7 +152,7 @@ c5[2:3,5:6]<-0 #inserting 0 in 2 and 3 row and 5 and 6 columns
 cbind(c4,c5)# combine both matrix on the basis of column
 
 rbind(c4,c5)# combine both matrix on the basis of rows
-# The above code doesnot work because the rbind only work when number of column in both matrices in same 
+# The above code does not work because the rbind only work when number of column in both matrices in same 
 
 
 t(c4) #t function is transpose which means it interchange rows into columns and vice versa. 
@@ -146,3 +160,27 @@ t(c4) #t function is transpose which means it interchange rows into columns and 
 ###-2.2.4- Deconstruction----
 
 c(c5) # c function break down matrix into its original vector
+
+#2.3-Array----
+
+?array
+
+c6<- array(1:24,dim = c(4,3,2),dimnames = list(c("Row1", "Row2","Row3","Row4"),              # Row names
+                                               c("Col1", "Col2", "Col3"),      # Column names
+                                               c("Layer1", "Layer2")))
+c6
+###2.3.1- Accessing the element in array----
+
+c6[,,2] #accessing second layer
+c6[2,3,1] #accessing 2 row, 3 column and 1 layer
+
+##2.4- List----
+
+?list
+c7 <- list(name = "Maaz", age = 25, scores = c(90, 85, 88))
+
+#You can access elements of a list using the `$` operator or double square brackets:
+
+###2.4.1-Accessing elements of a list----
+c7$name
+c7[["age"]]
